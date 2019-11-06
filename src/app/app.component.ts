@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'course-training';
+  
+  welcomeMessage: string = "I am Welcome Page";
+  noOfStudents: number = 2;
+  noOfClicks: number=0;
+
+  constructor(private appService: AppService) {
+
+  }
+
+  searchStudent() {
+    this.appService.getStudentData();
+  }
+
+
+
 }
