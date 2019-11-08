@@ -10,7 +10,11 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getStudentData(){
-   this.http.get('http://dummy.restapiexample.com/api/v1/employees');
+   return this.http.get('http://dummy.restapiexample.com/api/v1/employees');
+  }
+
+  getStuByID(id: number){
+    return this.http.get(`${"http://localhost:8080/getById"}/${id}`);
   }
 }
 

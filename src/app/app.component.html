@@ -19,11 +19,38 @@
 </div>
 
 <button type="submit" (click)="searchStudent()">Search</button>
-<!-- <button type="submit" (click)="searchStudent2()">button2</button>
-<button type="submit" (click)="searchStudent3()">button3</button>
-{{noOfClicks}}
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Salary</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let emp of empData">
+    <td>{{emp.id}}</td>
+    <td>{{emp.employee_name}}</td>
+    <td>{{emp.employee_salary}}</td>
+    <td>{{emp.employee_age}}</td>
+  </tr>
+</table>
+
 <div>
-  <button type="reset">Reset Form</button>
+<button type="submit" (click)="searchStuByID()">Search</button>
+</div>
+<!-- endDate: "10/10/2019"
+id: "104"
+in_stock: 46
+name: "Toaster"
+price: 45
+startDate: "10/10/2018" -->
+<input type="number" id="productid" name="productid" [(ngModel)]="productid">
+<div *ngIf="stuData != null">
+<p>Id: {{stuData.id}}</p>
+<p>Stock: {{stuData.in_stock}}</p>
+<p>Name: {{stuData.name}}</p>
+<p>Price: {{stuData.price}}</p>
+<p>Date: {{stuData.startDate}}</p>
 </div>
 
-<app-student></app-student> -->
+<!-- 
+<app-student></app-student>  -->
