@@ -9,7 +9,9 @@ const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch:'full'},
   {path: 'home', component:HomeComponent },
   {path: 'employee', component: EmployeeComponent},
-  {path: 'products', component: ProductsComponent}
+  {path: 'products', component: ProductsComponent},
+  {path: 'parent', loadChildren: './parent/parent.module#ParentModule'},
+  {path: 'about', loadChildren: './about/about.module#AboutModule'}
 ];
 
 @NgModule({
