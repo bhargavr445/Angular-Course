@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ParentFilterComponent } from '../parent/parent-filter/parent-filter.component';
+import { ParentComponent } from './parent.component';
+import { ParentCreateComponent } from './parent-create/parent-create.component';
 
 
 const routes: Routes = [
-  {path: '', component: ParentFilterComponent}
+  {path: '', component: ParentComponent, children:[
+    {path: 'create', component: ParentCreateComponent}
+  ]}
 ];
 
 @NgModule({
