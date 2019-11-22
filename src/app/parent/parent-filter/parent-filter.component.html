@@ -1,2 +1,24 @@
-<p>parent-filter works!</p>
-<router-outlet></router-outlet>
+<!-- <p>parent-filter works!</p>
+
+<router-outlet></router-outlet> -->
+
+<form [formGroup]="parentSearchForm">
+    <div>
+         <label for="parentId">Id</label>
+    <input type="number" name="parentId" id="parentId" formControlName="parentId">
+    </div>
+
+    <div>
+        <label for="parentName">Name</label>
+        <input type="text" name="parentName" id="parentName" formControlName="parentName">
+    </div>
+
+    <div>
+        <label for="phoneNumber">Phone</label>
+        <input type="text" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber">
+    </div>
+
+    <button type="submit" (click)="searchParent()">Search</button>
+    <button type="reset" (click)="resetForm()">Reset</button>
+
+</form>

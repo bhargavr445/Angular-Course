@@ -7,7 +7,7 @@ import { ParentResultComponent } from '../parent/parent-result/parent-result.com
 import { ParentComponent } from './parent.component';
 import { ParentCreateComponent } from './parent-create/parent-create.component';
 import { SharedModule } from '../shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ParentRoutingModule,
     FormsModule,
-    SharedModule
+    ReactiveFormsModule,
+    SharedModule,
+    
 
   ]
 })

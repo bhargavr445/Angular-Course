@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ParentService } from '../../parent/services/parent.service';
 
 @Component({
   selector: 'app-parent-filter',
@@ -7,9 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentFilterComponent implements OnInit {
 
-  constructor() { }
+  parentSearchForm: FormGroup;
+  parentList: any;
+  constructor(private fb: FormBuilder, private parentService: ParentService) { }
 
   ngOnInit() {
+    this.createForm();
   }
+
+  createForm(){
+    this.parentSearchForm = this.fb.group({
+      parentId:[''],
+      parentName: [''],
+      phoneNumber: ['']
+    })
+  }
+
+
+
+  searchParent() {
+    this.parentService.searchPrent(this.parentSearchForm.getRawValue()).subscribe((data)=>{
+      this.parentList = [
+                          {id:1, name:'John'},
+                          {id:2, name:'Smith'}
+                        ];
+    });
+  }
+
+  resetForm(){
+    this.parentSearchForm.reset();
+  }
+
+
 
 }
