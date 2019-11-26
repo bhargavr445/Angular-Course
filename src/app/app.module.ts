@@ -9,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { NavComponent } from './nav/nav.component';
 import { SharedModule } from './shared.module';
 import { FormsModule } from '@angular/forms';
+import {ChartsModule} from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    ChartsModule
     
   ],
   providers: [],
