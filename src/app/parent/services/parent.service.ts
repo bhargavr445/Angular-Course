@@ -13,6 +13,6 @@ export class ParentService {
   searchPrent(parentInfo: any){
     console.log(parentInfo);
    // localhost://parent/search?parentId=parentInfo.parentId&name=parentInfo.parentName&phone=parentPhone"
-  return this.http.get('http://localhost://parent/search?parentId=parentInfo.parentId&name=parentInfo.parentName&phone=parentPhone');
+  return this.http.get('https://hn.algolia.com/api/v1/search?query=');
   }
 }

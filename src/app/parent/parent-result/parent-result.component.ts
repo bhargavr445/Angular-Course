@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from '../..//parent/communication.service';
 
 @Component({
   selector: 'app-parent-result',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentResultComponent implements OnInit {
 
-  constructor() { }
+  parentList: any;
+  constructor(private communicationService: CommunicationService) { }
 
   ngOnInit() {
+    this.communicationService.cast.subscribe(data =>{
+      this.parentList = data;
+      console.log(this.parentList);
+    })
   }
 
 }

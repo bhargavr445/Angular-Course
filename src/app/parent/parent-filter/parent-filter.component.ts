@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ParentService } from '../../parent/services/parent.service';
+import { CommunicationService } from '../../parent/communication.service';
 
 @Component({
   selector: 'app-parent-filter',
@@ -11,7 +12,9 @@ export class ParentFilterComponent implements OnInit {
 
   parentSearchForm: FormGroup;
   parentList: any;
-  constructor(private fb: FormBuilder, private parentService: ParentService) { }
+  constructor(private fb: FormBuilder, 
+              private parentService: ParentService, 
+              private communicationService: CommunicationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -26,13 +29,21 @@ export class ParentFilterComponent implements OnInit {
   }
 
 
+  // 1. @Input
+  //    @Output  --xx
+  // ================
+  // 2. BehaviouralSubject(through Services) --
+  // 3. routing -- x
 
   searchParent() {
     this.parentService.searchPrent(this.parentSearchForm.getRawValue()).subscribe((data)=>{
-      this.parentList = [
-                          {id:1, name:'John'},
-                          {id:2, name:'Smith'}
-                        ];
+      this.parentList = data;
+                        // [
+                        //   {id:1, name:'John'},
+                        //   {id:2, name:'Smith'}
+                        // ];
+                        this.communicationService.getResultList(this.parentList);
+
     });
   }
 
