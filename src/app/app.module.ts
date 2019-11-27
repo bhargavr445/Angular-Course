@@ -10,13 +10,21 @@ import { NavComponent } from './nav/nav.component';
 import { SharedModule } from './shared.module';
 import { FormsModule } from '@angular/forms';
 import {ChartsModule} from 'ng2-charts';
+import { BarchartComponent } from './barchart/barchart.component';
+import { DoughnutchartComponent } from './doughnutchart/doughnutchart.component';
+import { PiechartComponent } from './piechart/piechart.component';
+import { BasechartComponent } from './basechart/basechart.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     HomeComponent,
     ProductsComponent,
-    NavComponent
+    NavComponent,
+    BarchartComponent,
+    DoughnutchartComponent,
+    PiechartComponent,
+    BasechartComponent
   ],
   imports: [
     BrowserModule,
