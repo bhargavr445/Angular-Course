@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-barchart',
@@ -18,7 +19,7 @@ export class BarchartComponent implements OnInit {
   ];
 
   chartLabels = ['January', 'February', 'Mars', 'April'];
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
   }
@@ -38,5 +39,11 @@ export class BarchartComponent implements OnInit {
   
     this.chartLabels = [...this.chartLabels, label];
   
+  }
+
+  test(){
+    this.appService.getAllProducts().subscribe((data)=>{
+      console.log(data);
+    });
   }
 }

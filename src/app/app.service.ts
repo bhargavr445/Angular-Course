@@ -1,19 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpBackend } from '@angular/common/http';
+import { HttpBackendClientService } from './interceptors/http-backend-client.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private httpb: HttpBackendClientService) { }
+
+  // private http: HttpClient;
+
+  //   constructor(
+  //       handler: HttpBackend) {
+  //       this.http = new HttpClient(handler);
+  //   }
+
+  // constructor(private http: HttpBackendClientService) {
+  // }
 
   getAllProducts() {
-   return this.http.get('http://localhost:8080/findAll');
+   return this.http.get('http://dummy.restapiexample.com/api/v1/employees');
+   //  'http://localhost:8080/findAll');
   }
 
   getProductById(productId: any){
    return this.http.get(`${"http://localhost:8080/getById"}/${productId}`);
+   
   }
 
   createProduct() {
